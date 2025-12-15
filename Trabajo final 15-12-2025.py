@@ -298,12 +298,12 @@ edad = np.linspace(df["edad"].min(), df["edad"].max(), 100)
 
 X_pred = pd.DataFrame({
     "const": 1,
-    "edad": edad_grid
+    "edad": edad
 })
 
 prob = modelo.predict(X_pred)
 
-plt.plot(edad_grid, prob)
+plt.plot(edad, prob)
 plt.xlabel("Edad")
 plt.ylabel("Probabilidad de votar al Candidato A")
 plt.title("Regresión logística")
@@ -331,6 +331,7 @@ if p_valor < 0.05: #decision estadistica
     print("Rechazamos la hipótesis nula H0: Hay diferencias significativas entre hombres y mujeres en la imagen del candidato.")
 else:
     print("No rechazamos la hipótesis nula H0: No hay diferencias significativas entre hombres y mujeres en la imagen del candidato.")
+
 
 
 
