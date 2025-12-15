@@ -165,7 +165,7 @@ print(casos_por_ventana.head())
 error_estandar = imagen_rolling_std / np.sqrt(casos_por_ventana)# Error estandar: se mide a partir del desvio estandar, mide que tan presisa es la estimacion de la media. np.sqrt: raixz cuadrada de las observaciones de cada ventana
 print(error_estandar.head())
 
-grados_libertad = casos_por_ventana - 1 # 1. Calcular los Grados de Libertad (df = n - 1). LOS CASOS POR VENTANA SON LOS CASOS REALES QUE TIENE LA VENTANA.(Osea n-1)la t de Student usa df = n - 1 para calcular el percentil crítico.
+grados_libertad = casos_por_ventana - 1 # Calcular los Grados de Libertad (df = n - 1). LOS CASOS POR VENTANA SON LOS CASOS REALES QUE TIENE LA VENTANA.(Osea n-1)la t de Student usa df = n - 1 para calcular el percentil crítico.
 t_critico = stats.t.ppf(0.975, grados_libertad) # 2. Calcular el Valor Crítico de t (dinámico) El percent point function (ppf) nos da el valor t para un 97.5% de probabilidad (IC 95%).stats.t.ppf(): Es la función de percentil de la distribución $t$ de la librería scipy. 0.975: Es el nivel de probabilidad que deja 2.5% de área en la cola superior (para un IC bilateral del 95%).
 # Aplicamos el t_critico para el Intervalo de Confianza
 ic_superior = imagen_rolling + t_critico * error_estandar # Suma al valor de la Media Móvil (imagen_rolling) el margen de error (valor t x error estandar). definimos el valor máximo donde se espera que se encuentre la media poblacional el 95% de las veces.
@@ -331,6 +331,7 @@ if p_valor < 0.05: #decision estadistica
     print("Rechazamos la hipótesis nula H0: Hay diferencias significativas entre hombres y mujeres en la imagen del candidato.")
 else:
     print("No rechazamos la hipótesis nula H0: No hay diferencias significativas entre hombres y mujeres en la imagen del candidato.")
+
 
 
 
