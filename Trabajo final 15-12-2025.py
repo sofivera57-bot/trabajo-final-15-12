@@ -294,7 +294,7 @@ print(modelo.summary()) #mostramos el informe completo del modelo.
 
 #grafico para regresion logistica
 #robabilidad de votar al candidato A según edad 
-edad_grid = np.linspace(df["edad"].min(), df["edad"].max(), 100)
+edad = np.linspace(df["edad"].min(), df["edad"].max(), 100)
 
 X_pred = pd.DataFrame({
     "const": 1,
@@ -331,6 +331,7 @@ if p_valor < 0.05: #decision estadistica
     print("Rechazamos la hipótesis nula H0: Hay diferencias significativas entre hombres y mujeres en la imagen del candidato.")
 else:
     print("No rechazamos la hipótesis nula H0: No hay diferencias significativas entre hombres y mujeres en la imagen del candidato.")
+
 
 
 
